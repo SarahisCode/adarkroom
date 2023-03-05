@@ -448,7 +448,7 @@ var Events = {
 		var enemyHp = enemy.data('hp');
 		var msg = "";
 		if(typeof dmg == 'number') {
-			if(dmg < 0) {
+			if(dmg <= 0) {
 				msg = _('miss');
 				dmg = 0;
 			} else {
@@ -478,7 +478,8 @@ var Events = {
 		} else {
 			if(dmg == 'stun') {
 				msg = _('stunned');
-				enemy.data('stunned', Events.STUN_DURATION);
+				enemy.data('stunned', true));
+				setTimeout(() => {enemy.data('stunned', false)},Events.STUNDURATION)
 			}
 		}
 
